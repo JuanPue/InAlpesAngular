@@ -22,12 +22,16 @@ export class UsuarioServiceService {
     return this.http.post<Usuario[]>(this.Url+"/usuario",usuario);
   }
   getUsuarioId(id:number):Observable<Usuario[]>{
-    return this.http.get<Usuario[]>(this.Url+"/usuario"+id)
+    return this.http.get<Usuario[]>(this.Url+"/usuario/"+id)
   }
   actualizarUsuario(usuario:Usuario):Observable<Usuario[]>{
     return this.http.put<Usuario[]>(this.Url+"/usuario/"+usuario.id,usuario)
   }
   eliminarUsuario(id:Number):Observable<Usuario[]>{
     return this.http.delete<Usuario[]>(this.Url+"/usuario/"+id)
+  }
+
+  usuarioInmueble(id:Number):Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(this.Url+"/usuarioIn/"+id)
   }
 }

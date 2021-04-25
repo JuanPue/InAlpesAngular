@@ -1,4 +1,4 @@
-import { Usuario } from "./usuario";
+
 
 export class Inmueble {
   id: number;
@@ -17,7 +17,6 @@ export class Inmueble {
   ciudad: string;
   barrio: string;
   id_usuario: string;
-  usuario:Usuario[];
 }
 
 

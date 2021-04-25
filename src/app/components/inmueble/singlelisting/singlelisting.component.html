@@ -23,31 +23,17 @@
             </div>
         </div>
     </section>
-
-
-
-<ngb-carousel *ngIf="images">
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[0]" alt="Random first slide">
-    </div>
-  </ng-template>
-</ngb-carousel>
-
-
-
 <section class="listings-content-wrapper section-padding-100">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <!-- Single Listings Slides -->
-                    <div class="single-listings-sliders owl-carousel">
-                        <!-- Single Slide -->
-                        <img src="assets/img/bg-img/hero4.jpg" alt="">
-                        <!-- Single Slide -->
-                        <img src="assets/img/bg-img/hero5.jpg" alt="">
-                    </div>
-                </div>
+
+              <ngb-carousel>
+                <ng-template *ngFor="let imagen of images" ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img src="{{imagen.img}}" alt="Random first slide">
+                  </div>
+                </ng-template>
+              </ngb-carousel>
             </div>
 
             <div class="row justify-content-center">
@@ -58,7 +44,7 @@
                             <p>${{inmuebles["precio"]}}</p>
                         </div>
                         <h5>{{inmuebles["tipo"]}} - {{inmuebles["tipo_inmueble"]}}</h5>
-                        <p class="location"><img src="assets/img/icons/location.png" alt="">{{inmuebles["direccion"]}}</p>
+                        <p class="location"><img src="assets/img/icons/location.png" alt="">{{inmuebles["direccion"]}} - {{inmuebles["ciudad"]}} - {{inmuebles["barrio"]}}</p>
                         <p>Descripción:</p>
                         <p>{{inmuebles["descripcion"]}}</p>
                         <!-- Meta -->

@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { ConsultageneralComponent } from './components/inmueble/consultageneral/consultageneral.component';
 import { SinglelistingComponent } from './components/inmueble/singlelisting/singlelisting.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SinglelistingComponent } from './components/inmueble/singlelisting/sing
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [InmuebleServiceService],
   bootstrap: [AppComponent]
