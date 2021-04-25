@@ -1,0 +1,145 @@
+
+
+    <!-- ##### Header Area Start ##### -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark gradient-background-overlay">
+        <a class="navbar-brand" href="#">InAlpes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/login">Inicio de sesión</a>
+
+          </div>
+        </div>
+      </nav>
+      </header>
+
+      <section class="breadcumb-area bg-img" style="background-image: url(assets/img/bg-img/hero1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">Inicio</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <!-- ##### Advance Search Area Start ##### -->
+            <div class="south-search-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="advanced-search-form">
+                                <!-- Search Title -->
+                                <div class="search-title">
+                                    <p>Busca tu hogar</p>
+                                </div>
+                                <!-- Search Form -->
+
+                                    <div class="row">
+                                    <div class="col-12 col-md-8 col-lg-8">
+                                    <a>Busqueda por tipos</a>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="cities" ngModel (ngModelChange)="search(key.value)" #key="ngModel">
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ##### Advance Search Area End ##### -->
+
+            <!-- ##### Featured Properties Area Start ##### -->
+            <section class="featured-properties-area section-padding-100-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-heading wow fadeInUp">
+                                <h2>Propiedades</h2>
+                                <p>Encuentre su propiedad</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                  <div class="col-12 col-md-6 col-xl-4" *ngFor="let inmueble of inmuebles" (click)="singlelisting()">
+                      <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
+
+                          <div class="property-thumb">
+                              <img src="assets/img/bg-img/feature1.jpg" alt="">
+
+                              <div class="tag">
+                                  <span>{{inmueble.tipo}}</span>
+                              </div>
+                              <div class="list-price">
+                                  <p>${{inmueble.precio}}</p>
+                              </div>
+                          </div>
+
+                          <div class="property-content">
+                              <h5>{{inmueble.estado}}</h5>
+                              <p class="location"><img src="assets/img/icons/location.png" alt="">{{inmueble.direccion}}</p>
+                              <p>{{inmueble.descripcion}}.</p>
+                              <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                  <div class="new-tag">
+                                      <img src="assets/img/icons/new.png" alt="">
+                                  </div>
+                                  <div class="bathroom">
+                                      <img src="assets/img/icons/bathtub.png" alt="">
+                                      <span>{{inmueble.num_banos}}</span>
+                                  </div>
+                                  <div class="garage">
+                                      <img src="assets/img/icons/garage.png" alt="">
+                                      <span>{{inmueble.num_habitaciones}}</span>
+                                  </div>
+                                  <div class="space">
+                                      <img src="assets/img/icons/space.png" alt="">
+                                      <span>{{inmueble.estrato}}</span>
+                                  </div>
+                              </div>
+                          </div>
+
+
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ##### Featured Properties Area End ##### -->
+
+            <!-- ##### Call To Action Area Start ##### -->
+            <!-- ##### Call To Action Area End ##### -->
+
+            <!-- ##### Testimonials Area Start ##### -->
+
+            <!-- ##### Testimonials Area End ##### -->
+
+            <!-- ##### Editor Area Start ##### -->
+
+            <!-- ##### Editor Area End ##### -->
+
+            <!-- ##### Footer Area Start ##### -->
+
+                  <!-- ##### Footer Area Start ##### -->
+      <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/cta.jpg)">
+        <div class="copywrite-text d-flex align-items-center justify-content-center">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | South - Inmobiliaria
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </footer>
+
+            <router-outlet></router-outlet>
+
+
