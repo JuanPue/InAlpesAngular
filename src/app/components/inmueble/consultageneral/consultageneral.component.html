@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="row">
-                  <div class="col-12 col-md-6 col-xl-4" *ngFor="let inmueble of inmuebles" (click)="singlelisting()">
+                  <div class="col-12 col-md-6 col-xl-4" *ngFor="let inmueble of inmuebles" (click)='singlelisting(inmueble.id)'>
                       <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
 
                           <div class="property-thumb">
@@ -79,7 +79,7 @@
                                   <p>${{inmueble.precio}}</p>
                               </div>
                           </div>
-                          <input type="hidden" value='{{}}'>
+                          <input type="hidden" value='{{inmueble.id}}'>
 
                           <div class="property-content">
                               <h5>{{inmueble.estado}}</h5>

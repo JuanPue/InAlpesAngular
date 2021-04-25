@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { InmuebleServiceService } from 'src/app/services/inmueble-service.service';
 
 @Component({
   selector: 'app-singlelisting',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SinglelistingComponent implements OnInit {
 
-  constructor() { }
+  id;
+  constructor(private activatedroute:ActivatedRoute, private router:Router, private inmuebleService:InmuebleServiceService) {
+    this.activatedroute.params.subscribe(data => {
+      console.log(data);
+      this.id = data;
+      console.log(this.id);
+    })
+   }
 
   ngOnInit(): void {
+    console.log(this.id);
+
   }
 
 }

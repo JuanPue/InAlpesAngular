@@ -7,7 +7,7 @@ import { ConsultageneralComponent } from './components/inmueble/consultageneral/
 const routes: Routes = [
   {path:'consultageneral', component:ConsultageneralComponent},
   {path:'',redirectTo:'consultageneral',pathMatch:'full'},
-  {path:'singelisting', component:SinglelistingComponent}
+  {path:'singelisting/:id', component:SinglelistingComponent}
 
 ];
 

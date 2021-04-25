@@ -19,7 +19,7 @@ export class ConsultageneralComponent implements OnInit {
   }
 
   singlelisting(id:number){
-    this.router.navigate(["singelisting"]);
+    this.router.navigate(["singelisting", id]);
   }
 
   getInmuebles():void{
