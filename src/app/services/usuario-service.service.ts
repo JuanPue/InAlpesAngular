@@ -34,4 +34,8 @@ export class UsuarioServiceService {
   usuarioInmueble(id:Number):Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.Url+"/usuarioIn/"+id)
   }
+
+  Login(usuario:string, clave:string):Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(`${this.Url}/usuarioLogin/${usuario}/${clave}`)
+  }
 }

@@ -2,7 +2,7 @@
 import { InmuebleServiceService } from './services/inmueble-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,21 +10,28 @@ import { AppComponent } from './app.component';
 import { ConsultageneralComponent } from './components/inmueble/consultageneral/consultageneral.component';
 import { SinglelistingComponent } from './components/inmueble/singlelisting/singlelisting.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+import { InicioComponent } from './components/inmueble/inicio/inicio.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultageneralComponent,
-    SinglelistingComponent
+    SinglelistingComponent,
+    LoginComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
+
   ],
   providers: [InmuebleServiceService],
   bootstrap: [AppComponent]

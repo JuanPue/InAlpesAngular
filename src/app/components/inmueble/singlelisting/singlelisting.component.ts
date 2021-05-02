@@ -32,9 +32,10 @@ export class SinglelistingComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.id);
     this.getInmuebles(this.id);
+    this.getUsuarioid(this.id);
   }
 
-  getInmuebles(id:number):void{
+  getInmuebles(id:number){
     this.inmuebleService.getInmuebleId(id).subscribe(response=>{
       this.inmuebles = response;
       console.log(this.inmuebles);
