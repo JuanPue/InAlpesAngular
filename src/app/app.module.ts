@@ -13,7 +13,10 @@ import { SinglelistingComponent } from './components/inmueble/singlelisting/sing
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
-import { InicioComponent } from './components/inmueble/inicio/inicio.component'
+import { InicioComponent } from './components/inmueble/inicio/inicio.component';
+import { NavbarComponent } from './plantillas/navbar/navbar.component';
+import { FooterComponent } from './plantillas/footer/footer.component'
+import { interceptorProvider } from './login/interceptors/interceptor.service';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { InicioComponent } from './components/inmueble/inicio/inicio.component'
     ConsultageneralComponent,
     SinglelistingComponent,
     LoginComponent,
-    InicioComponent
+    InicioComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { InicioComponent } from './components/inmueble/inicio/inicio.component'
     ReactiveFormsModule
 
   ],
-  providers: [InmuebleServiceService],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

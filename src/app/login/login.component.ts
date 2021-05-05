@@ -1,8 +1,11 @@
+import { LoginUsuario } from './models/login-usuario';
+import { AuthService } from './services/auth.service';
 import { Usuario } from 'src/app/classes/usuario';
 import { Router } from '@angular/router';
 import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { TokenService } from './services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -12,46 +15,61 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   usuarios:Usuario[];
-  credenciales={
-    correo:'',
-    clave:'',
-    confirm:''
-  };
   errorusuario='';
-  constructor(private ususervice:UsuarioServiceService, private router:Router) { }
+
+  isLogged = false;
+  isLogginFail= false;
+  loginUsuario:LoginUsuario;
+  correo:string;
+  clave:string;
+  roles:string[]=[];
+  errMsj: string;
+
+
+
+  constructor(private ususervice:UsuarioServiceService, private router:Router, private tokenService:TokenService,
+    private authServive:AuthService) { }
 
   ngOnInit(): void {
+    if (this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLogginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+      this.router.navigate(['consultageneral']);
+    }
   }
 
-  login(){
-    options:{
-      withCredentials:true
-    }
-    try {
-      this.ususervice.Login(this.credenciales.correo, this.credenciales.clave).subscribe((response: Usuario[])=>{
-        if(response==null){
-          this.errorusuario='Usuario y/o Contraseña incorrecta';
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Usuario y/o Contraseña incorrectos!',
-            footer: 'Si el problema persiste, Comunicate con un administrador.'
-          })
-        }else{;
-          console.log(this.usuarios);
-          localStorage.setItem("session",JSON.stringify(this.usuarios));
-          this.router.navigate(['inicio']);}
+  onLogin():void{
+    this.loginUsuario = new LoginUsuario(this.correo,this.clave);
+    this.authServive.login(this.loginUsuario).subscribe(
+      data => {
+        this.isLogged=true;
+        this.isLogginFail=false;
+
+        this.tokenService.setToken(data.token);
+        this.tokenService.setCorreo(data.correo);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
+        this.router.navigate(['consultageneral']);
+
+      },
+      err =>{
+        this.isLogged=false;
+        this.isLogginFail=true;
+        this.errMsj= err.error.mensaje+", Usuario y/o Contraseña incorrectos";
+        console.log(this.errMsj)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuario y/o Contraseña incorrectos!',
+          footer: 'Si el problema persiste, Comunicate con un administrador.'
+        })
       }
-      )
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Ha ocurrido un error, pero no es tu culpa!, Comunicate con un administrador.',
-        footer: error
-      })
-    }
-
+    );
   }
+
+
+
+
 
 }
