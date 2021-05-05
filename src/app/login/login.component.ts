@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private ususervice:UsuarioServiceService, private router:Router, private tokenService:TokenService,
+  constructor(private router:Router, private tokenService:TokenService,
     private authServive:AuthService) { }
 
   ngOnInit(): void {
@@ -67,9 +67,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-
-
-
-
 }

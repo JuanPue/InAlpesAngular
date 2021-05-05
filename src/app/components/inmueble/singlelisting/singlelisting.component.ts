@@ -6,6 +6,7 @@ import { InmuebleServiceService } from 'src/app/services/inmueble-service.servic
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap'
 import { Usuario } from 'src/app/classes/usuario';
 import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
+import { TokenService } from 'src/app/login/services/token.service';
 
 @Component({
   selector: 'app-singlelisting',
@@ -20,10 +21,11 @@ export class SinglelistingComponent implements OnInit {
     img:'assets/img/bg-img/hero5.jpg'
   }
 ];
+  isLogged=false;
   id:number;
   inmuebles:Inmueble[];
   usuarios:Usuario[];
-  constructor(private activatedroute:ActivatedRoute, private router:Router, private inmuebleService:InmuebleServiceService, private configcar:NgbCarouselConfig, private usuarioService:UsuarioServiceService) {
+  constructor(private activatedroute:ActivatedRoute, private router:Router, private inmuebleService:InmuebleServiceService, private configcar:NgbCarouselConfig, private usuarioService:UsuarioServiceService, private tokenService:TokenService) {
     this.activatedroute.params.subscribe(data => {
       this.id = data.id;
     })
@@ -33,6 +35,9 @@ export class SinglelistingComponent implements OnInit {
     console.log(this.id);
     this.getInmuebles(this.id);
     this.getUsuarioid(this.id);
+    if (this.tokenService.getToken()){
+      this.isLogged = true;
+    }
   }
 
   getInmuebles(id:number){

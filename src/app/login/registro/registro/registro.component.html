@@ -9,7 +9,7 @@
     <div class="row h-100 align-items-center">
       <div class="col-12">
         <div class="breadcumb-content">
-          <h3 class="breadcumb-title">Login - Registro</h3>
+          <h3 class="breadcumb-title">Registro</h3>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <div class="col-12">
 
         <div class="contact-heading">
-          <h6>Login</h6>
-
+          <h6>Registro</h6>
         </div>
-
       </div>
       <div class="col-12 col-lg-4">
         <div class="content-sidebar">
@@ -47,46 +45,102 @@
           <div class="weekly-office-hours">
             <ul>
               <li class="d-flex align-items-center justify-content-between">
+                <span>Nombre</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Apellido</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Identificación</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Telefono</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
                 <span>Correo</span> <span></span>
               </li>
               <li class="d-flex align-items-center justify-content-between">
-                <span>Contraseña</span> <span></span>
+                <span>Clave</span> <span></span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
+
+
+
       <!-- Contact Form Area -->
       <div class="col-12 col-lg-8">
         <div class="contact-form">
-          <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+          <form #f="ngForm" (ngSubmit)="onRegister()">
+          <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                name="tname"
+                id="contact-name"
+                placeholder="Nombre"
+                required
+                [(ngModel)]="nombre"
+              />
+            </div>
             <div class="form-group">
               <input
                 type="email"
                 class="form-control"
-                name="text"
-                id="contact-name"
+                name="ap"
+                id="contact-ap"
+                placeholder="Apellido"
+                required
+                [(ngModel)]="apellido"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                name="id"
+                id="contact-id"
+                placeholder="Identificación"
+                required
+                [(ngModel)]="identificacion"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                name="tel"
+                id="contact-tel"
+                placeholder="Telefono"
+                required
+                [(ngModel)]="telefono"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                name="cor"
+                id="contact-cor"
                 placeholder="Correo"
                 required
                 [(ngModel)]="correo"
+                ngModel email
               />
             </div>
             <div class="form-group">
               <input
                 type="password"
                 class="form-control"
-                name="text"
-                id="contact-number"
+                name="clave"
+                id="contact-clave"
                 placeholder="Contraseña"
                 required
                 [(ngModel)]="clave"
               />
             </div>
-            <div class="form-group">
-            <span>¿No tienes cuenta?, haz click <a routerLink="/registro">aquí</a></span>
-            </div>
-
             <button type="submit" class="btn south-btn" [disabled]="!f.valid">Login</button>
           </form>
           <div *ngIf="errorusuario !== ''">{{ errorusuario }}</div>
@@ -94,7 +148,6 @@
       </div>
 
       <hr />
-
     </div>
     </ng-template>
 

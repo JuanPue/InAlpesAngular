@@ -34,6 +34,7 @@
                         <p class="location"><img src="assets/img/icons/location.png" alt="">{{inmuebles["direccion"]}} - {{inmuebles["ciudad"]}} - {{inmuebles["barrio"]}}</p>
                         <p>Descripción:</p>
                         <p>{{inmuebles["descripcion"]}}</p>
+                        <p *ngIf="!isLogged">Para más información, inicie sesión</p>
                         <!-- Meta -->
                         <div class="property-meta-data d-flex align-items-end">
                             <div class="new-tag">
