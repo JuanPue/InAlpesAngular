@@ -24,6 +24,7 @@ export class SinglelistingComponent implements OnInit {
   isLogged=false;
   id:number;
   inmuebles:Inmueble[];
+  inmuebles2:Inmueble[];
   usuarios:Usuario[];
   constructor(private activatedroute:ActivatedRoute, private router:Router, private inmuebleService:InmuebleServiceService, private configcar:NgbCarouselConfig, private usuarioService:UsuarioServiceService, private tokenService:TokenService) {
     this.activatedroute.params.subscribe(data => {
@@ -32,12 +33,12 @@ export class SinglelistingComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.id);
     this.getInmuebles(this.id);
     this.getUsuarioid(this.id);
     if (this.tokenService.getToken()){
       this.isLogged = true;
     }
+
   }
 
   getInmuebles(id:number){
@@ -53,4 +54,6 @@ export class SinglelistingComponent implements OnInit {
       console.log(this.usuarios);
     })
   }
+
+
 }

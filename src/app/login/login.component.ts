@@ -56,12 +56,12 @@ export class LoginComponent implements OnInit {
       err =>{
         this.isLogged=false;
         this.isLogginFail=true;
-        this.errMsj= err.error.mensaje+", Usuario y/o Contraseña incorrectos";
+        this.errMsj= err.error.mensaje+"";
         console.log(this.errMsj)
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Usuario y/o Contraseña incorrectos!',
+          text: this.errMsj,
           footer: 'Si el problema persiste, Comunicate con un administrador.'
         })
       }

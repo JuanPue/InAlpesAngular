@@ -17,8 +17,9 @@ export class Usuario {
   preferencias: String;
   recibir_novedades: String;
   recibir_notificaciones: String;
-  inmuebles:Inmueble[];
+  inmueble:Inmueble[];
 }
 
 
 //Para generar nuevas clases usen: ng g class classes/nombre
+//no cambien la clase usuario ni aqui ni en spring

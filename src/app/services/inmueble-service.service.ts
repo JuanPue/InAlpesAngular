@@ -32,8 +32,8 @@ export class InmuebleServiceService {
     return this.http.put<Inmueble[]>(this.Url+"/Inmuebles/"+inmueble.id, inmueble)
   }
 
-  deleteInmueble(inmueble:Inmueble):Observable<Inmueble[]>{
-    return this.http.put<Inmueble[]>(this.Url+"/Inmuebles/"+inmueble.id, inmueble)
+  deleteInmueble(id:number):Observable<Inmueble[]>{
+    return this.http.delete<Inmueble[]>(this.Url+"/Inmuebles/"+id)
   }
 
   getInmueblesActivos():Observable<Inmueble[]>{

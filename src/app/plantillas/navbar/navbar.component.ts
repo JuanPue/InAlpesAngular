@@ -18,13 +18,11 @@ export class NavbarComponent implements OnInit {
     if (this.tokenService.getToken()){
       this.isLogged = true;
       this.roles = this.tokenService.getAuthorities();
-      console.log(this.roles);
       if(this.roles.includes('ROLE_ADMIN')){
         this.rol = 'admin';
       } else if (this.roles.includes('ROLE_COMERCIAL')) {
         this.rol = 'comercial';
       }
-      console.log(this.rol);
     }
     else{
       this.isLogged=false;
@@ -34,5 +32,4 @@ export class NavbarComponent implements OnInit {
     this.tokenService.logOut();
     window.location.reload();
   }
-
 }

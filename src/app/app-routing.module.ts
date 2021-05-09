@@ -6,6 +6,7 @@ import { ConsultageneralComponent } from './components/inmueble/consultageneral/
 import { LoginComponent } from './login/login.component';
 import { InicioComponent } from './components/inmueble/inicio/inicio.component';
 import { RegistroComponent } from './login/registro/registro/registro.component';
+import { InmueblesComponent } from './components/inmueble/inmuebles/inmuebles.component';
 
 const routes: Routes = [
   {path:'consultageneral', component:ConsultageneralComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'singelisting/:id', component:SinglelistingComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'inicio', component:InicioComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] }}
+  {path:'inicio', component:InicioComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] }},
+  {path:'inmuebles',component:InmueblesComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user','comercial'] }}
 
 ];
 

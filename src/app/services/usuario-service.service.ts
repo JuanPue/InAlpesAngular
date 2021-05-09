@@ -38,4 +38,7 @@ export class UsuarioServiceService {
   Login(usuario:string, clave:string):Observable<Usuario[]>{
     return this.http.get<Usuario[]>(`${this.Url}/usuarioLogin/${usuario}/${clave}`)
   }
+  getUsuarioCo(correo:string):Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(`${this.Url}/usuarioCo/${correo}`)
+  }
 }
