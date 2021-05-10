@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin():void{
-    this.loginUsuario = new LoginUsuario(this.correo,this.clave);
+    this.loginUsuario = new LoginUsuario(this.correo.toLowerCase(),this.clave);
     this.authServive.login(this.loginUsuario).subscribe(
       data => {
         this.isLogged=true;

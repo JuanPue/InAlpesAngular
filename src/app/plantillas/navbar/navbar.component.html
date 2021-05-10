@@ -13,13 +13,13 @@
           <a class="nav-link" routerLink="/inmuebles">Inmuebles</a>
         </li>
         <li class="nav-item" *ngIf="rol=='admin'">
-          <a class="nav-link" routerLink="/lista">ADMIN</a>
+          <a class="nav-link">ADMIN</a>
         </li>
         <li class="nav-item" *ngIf="rol=='user'">
-          <a class="nav-link" routerLink="/lista">USUARIO</a>
+          <a class="nav-link">USUARIO</a>
         </li>
         <li class="nav-item" *ngIf="rol=='comercial'">
-          <a class="nav-link" routerLink="/lista">COMERCIAL</a>
+          <a class="nav-link">COMERCIAL</a>
         </li>
           <li class="nav-item"  (click)="onLogOut()">
             <a class="nav-link" style="cursor: pointer;"> Cerrar Sesión</a>

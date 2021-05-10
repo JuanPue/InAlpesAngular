@@ -24,7 +24,6 @@ export class SinglelistingComponent implements OnInit {
   isLogged=false;
   id:number;
   inmuebles:Inmueble[];
-  inmuebles2:Inmueble[];
   usuarios:Usuario[];
   constructor(private activatedroute:ActivatedRoute, private router:Router, private inmuebleService:InmuebleServiceService, private configcar:NgbCarouselConfig, private usuarioService:UsuarioServiceService, private tokenService:TokenService) {
     this.activatedroute.params.subscribe(data => {

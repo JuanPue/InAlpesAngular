@@ -35,7 +35,7 @@ export class RegistroComponent implements OnInit {
   }
 
   onRegister():void{
-    this.nuevoUsuario = new NuevoUsuario(this.nombre,this.identificacion,this.apellido,this.telefono,this.correo,this.clave,this.estado);
+    this.nuevoUsuario = new NuevoUsuario(this.nombre,this.identificacion,this.apellido,this.telefono,this.correo.toLowerCase(),this.clave,this.estado);
     this.authServive.nuevo(this.nuevoUsuario).subscribe(
       data => {
         this.isRegister=true;

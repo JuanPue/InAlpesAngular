@@ -19,6 +19,9 @@ import { FooterComponent } from './plantillas/footer/footer.component'
 import { interceptorProvider } from './login/interceptors/interceptor.service';
 import { RegistroComponent } from './login/registro/registro/registro.component';
 import { InmueblesComponent } from './components/inmueble/inmuebles/inmuebles.component';
+import { EditarInmuebleComponent } from './components/inmueble/editar-inmueble/editar-inmueble.component';
+import { RegistrarInmuebleComponent } from './components/inmueble/registrar-inmueble/registrar-inmueble.component';
+
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { InmueblesComponent } from './components/inmueble/inmuebles/inmuebles.co
     NavbarComponent,
     FooterComponent,
     RegistroComponent,
-    InmueblesComponent
+    InmueblesComponent,
+    EditarInmuebleComponent,
+    RegistrarInmuebleComponent
   ],
   imports: [
     BrowserModule,

@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 export class ConsultageneralComponent implements OnInit {
   //revisen como se hace el tipo de dato
   inmuebles:Inmueble[];
+  inmuebles2:Inmueble[];
   //^^^^^^^^^^^^^^^^
   constructor(private inmuebleService:InmuebleServiceService, private router:Router) { }
 
   ngOnInit(): void {
     this.getInmuebles()
+
   }
 
   singlelisting(id:number){
@@ -23,8 +25,9 @@ export class ConsultageneralComponent implements OnInit {
   }
 
   getInmuebles():void{
-    this.inmuebleService.getInmuebles().subscribe((response: Inmueble[])=>{
+    this.inmuebleService.getInmueblesActivos().subscribe((response: Inmueble[])=>{
       this.inmuebles = response;
+      this.inmuebles2=response;
       console.log(this.inmuebles);
     })
   }
@@ -34,13 +37,16 @@ export class ConsultageneralComponent implements OnInit {
 ;    const results: Inmueble[] = [];
     for (const inmueble of this.inmuebles){
       if(inmueble.tipo.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
-      inmueble.direccion.toLowerCase().indexOf(key.toLowerCase()) !== -1 ){
+      inmueble.direccion.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+      inmueble.tipo_inmueble.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+      inmueble.ciudad.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+      inmueble.barrio.toLowerCase().indexOf(key.toLowerCase()) !== -1 ){
         results.push(inmueble);
       }
     }
     this.inmuebles = results;
     if(results.length === 0  || !key){
-      this.getInmuebles();
+      this.inmuebles=this.inmuebles2;
     }
   }
 
