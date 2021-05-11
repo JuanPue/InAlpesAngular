@@ -55,6 +55,7 @@ export class InmueblesComponent implements OnInit {
   }  else {
     this.inmuebleService.getInmuebles().subscribe(response =>{
       this.inmuebles = response;
+      this.inmuebles2=response;
       console.log(this.inmuebles);
     })
   }
@@ -109,9 +110,8 @@ export class InmueblesComponent implements OnInit {
 
 
   search(key: string):void{
-
-    console.log(key)
-;    const results: Inmueble[] = [];
+    console.log(key);
+    const results: Inmueble[] = [];
     for (const inmueble of this.inmuebles){
       if(inmueble.estado.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
       inmueble.direccion.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||

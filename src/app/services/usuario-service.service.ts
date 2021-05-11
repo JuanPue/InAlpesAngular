@@ -14,9 +14,7 @@ export class UsuarioServiceService {
   Url = "http://localhost:8080/inalpes/api";
 
   getUsuarios():Observable<Usuario[]>{
-
-    var usu = this.http.get<Usuario[]>(this.Url+"/usuario");
-    return usu;
+    return this.http.get<Usuario[]>(this.Url+"/usuario");
   }
   createUsuario(usuario:Usuario):Observable<Usuario[]>{
     return this.http.post<Usuario[]>(this.Url+"/usuario",usuario);

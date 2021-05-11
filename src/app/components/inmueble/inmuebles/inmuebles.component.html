@@ -58,6 +58,7 @@
           ¡Aún no has registrado ningún inmueble, registra uno dando click
           <a style="font-size: 40px">aquí</a>¡
         </h1>
+        <div class="table-responsive">
         <table
           id="data-table-basic"
           class="table table-striped text-center"
@@ -67,16 +68,24 @@
           <thead>
             <tr>
               <th>Servicio</th>
+              <th>Ciudad</th>
+              <th>Barrio</th>
               <th>Direccion</th>
+              <th>Tipo</th>
               <th>Estado</th>
+              <th>Precio</th>
               <th colspan="2">Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let inmueble of inmuebles; index as i">
               <td>{{ inmueble.tipo }}</td>
+              <td>{{inmueble.ciudad}}</td>
+              <td>{{inmueble.barrio}}</td>
               <td>{{ inmueble.direccion }}</td>
+              <td>{{inmueble.tipo_inmueble}}</td>
               <td>{{ inmueble.estado }}</td>
+              <td>{{inmueble.precio}}</td>
               <td *ngIf="rol != 'comercial'">
                 <button
                   class="btn south-btn btn-xs"
@@ -84,14 +93,14 @@
                   *ngIf="inmueble.estado != 'Vendido' && rol != 'user'"
                 >
                   Editar</button
-                >&nbsp;&nbsp;&nbsp;
+                >
                 <button
                   class="btn south-btn btn-xs"
                   (click)="editar(inmueble.id)"
                   *ngIf="rol != 'admin' && inmueble.estado != 'Vendido'"
                 >
                   Editar</button
-                >&nbsp;&nbsp;&nbsp;
+                >
                 <button
                   class="btn south-btn btn-xs"
                   data-toggle="modal"
@@ -99,7 +108,7 @@
                   *ngIf="inmueble.estado == 'Activo'"
                 >
                   Eliminar</button
-                >&nbsp;&nbsp;&nbsp;
+                >
                 <div
                   class="modal fade"
                   id="MD{{ inmueble.id }}"
@@ -226,6 +235,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
     <div class="row">&nbsp;</div>

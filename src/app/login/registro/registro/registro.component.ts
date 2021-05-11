@@ -12,6 +12,7 @@ import { TokenService } from '../../services/token.service';
 })
 export class RegistroComponent implements OnInit {
 
+  rols:string[] = [];
   isLogged = false;
   isRegister = false;
   isRegisterFail= false;
@@ -35,7 +36,8 @@ export class RegistroComponent implements OnInit {
   }
 
   onRegister():void{
-    this.nuevoUsuario = new NuevoUsuario(this.nombre,this.identificacion,this.apellido,this.telefono,this.correo.toLowerCase(),this.clave,this.estado);
+    this.rols.push('user');
+    this.nuevoUsuario = new NuevoUsuario(this.nombre,this.identificacion,this.apellido,this.telefono,this.correo.toLowerCase(),this.clave,this.estado,this.rols);
     this.authServive.nuevo(this.nuevoUsuario).subscribe(
       data => {
         this.isRegister=true;

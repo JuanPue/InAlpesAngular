@@ -17,6 +17,7 @@ export class Usuario {
   preferencias: String;
   recibir_novedades: String;
   recibir_notificaciones: String;
+  roles:string[];
   inmueble:Inmueble[];
 }
 

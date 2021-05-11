@@ -6,8 +6,9 @@ export class NuevoUsuario {
   correo:string;
   clave:string;
   estado:string;
+  roles:string[];
 
-  constructor(nombre:string,identificacion:string,apellido:string,telefono:string,correo:string,clave:string,estado:string){
+  constructor(nombre:string,identificacion:string,apellido:string,telefono:string,correo:string,clave:string,estado:string, roles:string[]){
     this.nombre=nombre;
     this.identificacion=identificacion;
     this.apellido=apellido;
@@ -15,5 +16,6 @@ export class NuevoUsuario {
     this.correo=correo;
     this.clave=clave;
     this.estado=estado;
+    this.roles=roles;
   }
 }

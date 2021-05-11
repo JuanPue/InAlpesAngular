@@ -21,6 +21,8 @@ import { RegistroComponent } from './login/registro/registro/registro.component'
 import { InmueblesComponent } from './components/inmueble/inmuebles/inmuebles.component';
 import { EditarInmuebleComponent } from './components/inmueble/editar-inmueble/editar-inmueble.component';
 import { RegistrarInmuebleComponent } from './components/inmueble/registrar-inmueble/registrar-inmueble.component';
+import { UsuariosComponent } from './components/usuario/usuarios/usuarios.component';
+import { RegistrarUsuarioComponent } from './components/usuario/registrar-usuario/registrar-usuario.component';
 
 
 
@@ -36,7 +38,9 @@ import { RegistrarInmuebleComponent } from './components/inmueble/registrar-inmu
     RegistroComponent,
     InmueblesComponent,
     EditarInmuebleComponent,
-    RegistrarInmuebleComponent
+    RegistrarInmuebleComponent,
+    UsuariosComponent,
+    RegistrarUsuarioComponent
   ],
   imports: [
     BrowserModule,

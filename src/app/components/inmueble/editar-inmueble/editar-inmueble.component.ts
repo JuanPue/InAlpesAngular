@@ -1,6 +1,6 @@
 import Swal  from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Inmueble } from 'src/app/classes/inmueble';
 import { TokenService } from 'src/app/login/services/token.service';
 import { InmuebleServiceService } from 'src/app/services/inmueble-service.service';
@@ -17,7 +17,7 @@ export class EditarInmuebleComponent implements OnInit {
 
   inmueble:Inmueble[];
   id:number;
-  constructor(private activatedroute:ActivatedRoute, private inmuebleService:InmuebleServiceService, private tokenService:TokenService, private titleCasePipe: TitleCasePipe) {
+  constructor(private activatedroute:ActivatedRoute, private inmuebleService:InmuebleServiceService, private tokenService:TokenService, private titleCasePipe: TitleCasePipe, private router:Router) {
     this.activatedroute.params.subscribe(data => {
       this.id = data.id;
     })
@@ -47,7 +47,7 @@ export class EditarInmuebleComponent implements OnInit {
         text: '¡El inmueble ha sido actualizado exitosamente!'
       }).then((result) =>{
         if(result.isConfirmed){
-          window.location.reload()
+          this.router.navigate(['inmuebles']);
         }
       })
     }, err=>{

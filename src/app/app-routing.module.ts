@@ -1,3 +1,4 @@
+import { RegistrarUsuarioComponent } from './components/usuario/registrar-usuario/registrar-usuario.component';
 import { EditarInmuebleComponent } from './components/inmueble/editar-inmueble/editar-inmueble.component';
 import { GuardService as guard } from './login/guards/guard.service';
 import { SinglelistingComponent } from './components/inmueble/singlelisting/singlelisting.component';
@@ -9,6 +10,7 @@ import { InicioComponent } from './components/inmueble/inicio/inicio.component';
 import { RegistroComponent } from './login/registro/registro/registro.component';
 import { InmueblesComponent } from './components/inmueble/inmuebles/inmuebles.component';
 import { RegistrarInmuebleComponent } from './components/inmueble/registrar-inmueble/registrar-inmueble.component';
+import { UsuariosComponent } from './components/usuario/usuarios/usuarios.component';
 
 const routes: Routes = [
   {path:'consultageneral', component:ConsultageneralComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:'inicio', component:InicioComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] }},
   {path:'inmuebles',component:InmueblesComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user','comercial'] }},
   {path:'editarinmueble/:id',component:EditarInmuebleComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] }},
-  {path:'registrarinmueble',component:RegistrarInmuebleComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] }}
+  {path:'registrarinmueble',component:RegistrarInmuebleComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] }},
+  {path:'usuarios',component:UsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin', 'comercial'] }},
+  {path:'registarusuario',component:RegistrarUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin'] }}
 ];
 
 @NgModule({
